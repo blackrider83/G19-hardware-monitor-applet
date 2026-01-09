@@ -190,7 +190,7 @@ QUrl InfluxDb::getUrl(QString query)
 
     if(!influxSettings.username.isEmpty() && !influxSettings.password.isEmpty())
     {
-        url += "&u=" + influxSettings.username + "&p=" + influxSettings.password;
+        url += "&u=" + QUrl::toPercentEncoding(influxSettings.username) + "&p=" + QUrl::toPercentEncoding(influxSettings.password);
     }
 
     return QUrl(url);
